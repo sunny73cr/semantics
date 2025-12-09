@@ -166,7 +166,7 @@ In the above example, strings are passed to `void handle_exit(str, strlen)` lite
 
 A method to harden your program could be:
 
-Use a macro to call a `vec8* get_message(enum_msg_code message_code)`,
+Call a `vec8* get_message(enum_msg_code message_code)`,
 which calls a `inline vec8* get_message_delinearized_MESSAGE_DESCRIPTION_HERE()` function.
 
 Each character of the message is allocated on the heap, and with ASLR; should significantly harden the program against static and (in a way) dynamic analysis.
