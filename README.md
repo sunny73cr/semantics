@@ -1,6 +1,8 @@
 # semantics
 Semantic arguments regarding code style and program execution (hmm...)
 
+## Minimising stack exchange; program correctness, code correctness
+
 [Original comment on mattkefford's post](https://github.com/MaJerle/c-code-style/issues/4#issuecomment-3629750546)
 
 [mattkefford](https://github.com/mattkefford) > "... all variables at the top of a block is ... old fashioned."
@@ -155,5 +157,96 @@ int main(int strc, char** strs) {
         default: assert(!"String type determination returned an unexpected value...");
            // break; //is technically not neccessary.
     }
+}
+```
+
+## Reducing the reverse-ability of code via static analysis
+
+In the above example, strings are passed to `void handle_exit(str, strlen)` literally. These would be stored in the binary closely to how they are written, and this would make it fairly easy to understand the flow of execution with a little effort.
+
+A method to harden your program could be:
+
+Use a macro to call a `vec8* get_message(enum_msg_code message_code)`,
+which calls a `inline vec8* get_message_delinearized_MESSAGE_DESCRIPTION_HERE()` function.
+
+Each character of the message is allocated on the heap, and with ASLR; should significantly harden the program against static and (in a way) dynamic analysis.
+The strings no longer immediately stand out as steps in the flow of execution, and you retain maintainability.
+
+A new issue is that the code is significantly slower; and, you are no longer able to use the message within the preprocessor environment yourself.
+
+### some other header:
+```
+#define MSG_LEN_INDETERMINATE_TYPE_STRING 39
+#define MSG_CODE_INDETERMINATE_TYPE_STRING 32766
+```
+
+### get_error(E_MSG_CODE_X)
+```
+vec8* get_error(enum_msg_code message_code);
+
+vec8* get_error(enum_msg_code message_code) {
+    switch (message_code) 
+        case MSG_CODE_INDETERMINATE_TYPE_STRING:
+            return get_message_delinearized_indeterminate_type_string();
+        ...
+        default: assert(!"unhandled case.")
+    }
+}
+```
+
+### get_string_delinearized_indeterminate_type_string()
+```
+inline vec8* get_message_delinearized_indeterminate_type_string();
+
+inline vec8* get_message_delinearized_indeterminate_type_string() {
+    vec8* message;
+    if (message) return message;
+
+    vec8opt opts = 0 | VEC_OPT_HEAP_SPREAD;
+    ecode e = allocate_vec8(message, MSG_LEN_INDETERMINATE_TYPE_STRING, opts);
+    if (!message) /*your choice of ENOMEM handling, or*/ return nullptr;
+
+    //"Type of string could not be determined."
+    append_vec8_char(message, 'T');
+    append_vec8_char(message, 'y');
+    append_vec8_char(message, 'p');
+    append_vec8_char(message, 'e');
+    append_vec8_char(message, ' ');
+    append_vec8_char(message, 'o');
+    append_vec8_char(message, 'f');
+    append_vec8_char(message, ' ');
+    append_vec8_char(message, 's');
+    append_vec8_char(message, 't');
+    append_vec8_char(message, 'r');
+    append_vec8_char(message, 'i');
+    append_vec8_char(message, 'n');
+    append_vec8_char(message, 'g');
+    append_vec8_char(message, ' ');
+    append_vec8_char(message, 'c');
+    append_vec8_char(message, 'o');
+    append_vec8_char(message, 'u');
+    append_vec8_char(message, 'l');
+    append_vec8_char(message, 'd');
+    append_vec8_char(message, ' ');
+    append_vec8_char(message, 'n');
+    append_vec8_char(message, 'o');
+    append_vec8_char(message, 't');
+    append_vec8_char(message, ' ');
+    append_vec8_char(message, 'b');
+    append_vec8_char(message, 'e');
+    append_vec8_char(message, '');
+    append_vec8_char(message, 'd');
+    append_vec8_char(message, 'e');
+    append_vec8_char(message, 't');
+    append_vec8_char(message, 'e');
+    append_vec8_char(message, 'r');
+    append_vec8_char(message, 'm');
+    append_vec8_char(message, 'i');
+    append_vec8_char(message, 'n');
+    append_vec8_char(message, 'e');
+    append_vec8_char(message, 'd');
+    append_vec8_char(message, '.');
+
+    return message;
 }
 ```
