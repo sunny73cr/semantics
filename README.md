@@ -11,7 +11,7 @@ Semantic arguments regarding code style and program execution (hmm...)
 
 I believe that context is required before making this decision; and that declarations (and furthermore, initialisations) are better suited closer to where they are used.
 
-Consider the code block at the bottom. Each case results in the call to an inline function; which may or may not declare and initialise it's own set of stack variables. These code blocks get copied and optimised by the compiler; as if each case contained what is contained in the inline function that is called. The names of these functions' stack variables may clash; though, it is inconsequential for the case of an inline function; as they are somehow forbidden from reaching outside their scope ['inline function specifier' at cppreference.com](https://cppreference.com/w/c/language/inline.html): I presume that that is because the variable names could be mangled into some hexadecimal identifier, rather than the literal ASCII. (eg. 23ED4, instead of 'count_symbol_a'). Alternatively, declarations are re-ordered and combined as neccessary. I have not yet dug into the preprocessed code, nor the assembly; in order to know for sure. Regardless, if it turns out that the inline'd functions results in incorrect code, the programmer must declare, optimise and re-order declarations as neccessary.
+Consider the code block at the bottom. Each case results in the call to an inline function; which may or may not declare and initialise it's own set of stack variables. These code blocks get copied and optimised by the compiler; as if each case contained what is contained in the inline function that is called. The names of these functions' stack variables may clash; though, it is inconsequential for the case of an inline function; as the function is somehow forbidden from reaching outside it's scope ['inline function specifier' at cppreference.com](https://cppreference.com/w/c/language/inline.html): I presume that it is inconsequential because the variable names could be mangled into some hexadecimal identifier, rather than the literal ASCII. (eg. 23ED4, instead of 'count_symbol_a'). Alternatively, declarations are re-ordered and combined as neccessary. I have not yet dug into the preprocessed code, nor the assembly; in order to know for sure. Regardless, if it turns out that the inline'd functions results in incorrect code, the programmer must declare, optimise and re-order declarations as neccessary.
 
 Also consider the implementation of 'printf' within GNU coreutils: ['printf.c'](https://git.savannah.gnu.org/), or GNU glibc: ['printf.c > __vfprintf_internal.c | glibc-2.42.9000'](https://git.savannah.gnu.org/)
 ... if you can find them. I have some trouble doing so, myself.
@@ -256,3 +256,68 @@ inline vec8* get_message_delinearized_indeterminate_type_string() {
     return message_indeterminate_type_string;
 }
 ```
+
+## and now; for something completely different:
+
+Randomise your struct layout!
+
+Instead of the following:
+```
+#define VEC8_INITIAL_SIZE 32
+typedef struct {
+    u8 size; //of buffer
+    char** buf;
+    u8 len; //of data
+    enum_enc_t enc; //utf-8, ascii, b64, octal, etc. (or mixed)
+    enum_vec_opt_t opt; //heap spread, contiguous, reverse, etc.
+} vec8_secure;
+```
+
+Do this!
+```
+#define VEC8_INITIAL_SIZE 32
+typedef enum : u8 {
+    _VEC8_PROP_UNKNOWN = 0,
+    VEC8_PROP_SIZE = 1,
+    VEC8_PROP_BUF = 2,
+    VEC8_PROP_LEN = 3,
+    VEC8_PROP_ENC = 4,
+    VEC8_PROP_OPT = 5
+} enum_vec8_secure_property;
+
+typedef struct {
+    u8 idx;
+    u8 property;
+} vec8_secure_index_member;
+
+typedef ;
+
+typedef struct {
+    vec8_secure_index_member* index[] vec8_secure_index;
+    void* one;
+    void* two;
+    void* three;
+    void* four;
+    void* five;
+} vec8_secure;
+
+// create and setup a vec8
+vec8* vec8_secure_initialise() {
+    //create and populate the property index.
+    //initialise each property.
+    //return the vec8*.
+}
+
+//then, define:
+// _vec8_secure_get_size();
+// vec8_secure_get_buf();
+// vec8_secure_get_len();
+// vec8_secure_get_enc();
+// vec8_secure_get_opt();
+```
+
+If the structure of your memory is hard to guess, then the heap-spread string is encrypted via byte-packing, alternate encoding/s, further obfuscation and indexing, etc...
+
+It can't be hacked!
+
+and after all, that was the point of encryption.
