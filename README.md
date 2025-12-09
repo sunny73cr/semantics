@@ -206,10 +206,12 @@ inline vec8* get_message_delinearized_indeterminate_type_string() {
         MSG_LEN_INDETERMINATE_TYPE_STRING,
         VEC_OPT_HEAP_SPREAD
     );
-    if (nullptr != message_indeterminate_type_string) {
-        /*your choice of ENOMEM handling, or*/ return nullptr;
+    switch (e) {
+        case ENOMEM:
+            /*your choice of ENOMEM handling, or*/ return nullptr;
+        default: assert(!"unhandled case.")
     }
-
+    
     //"Type of string could not be determined."
     append_vec8_char(message_indeterminate_type_string, 'T');
     append_vec8_char(message_indeterminate_type_string, 'y');
