@@ -172,7 +172,7 @@ which calls a `inline vec8* get_message_delinearized_MESSAGE_DESCRIPTION_HERE()`
 Each character of the message is allocated on the heap, and with ASLR; should significantly harden the program against static and (in a way) dynamic analysis.
 The strings no longer immediately stand out as steps in the flow of execution, and you retain maintainability.
 
-A new issue is that the code is significantly slower; and, you are no longer able to use the message within the preprocessor environment yourself.
+A new issue is that the code is significantly slower; and, you are no longer able to use the message within the preprocessor environment.
 
 ### get_error(enum_msg_code message_code)
 ```
