@@ -201,11 +201,10 @@ inline vec8* get_message_delinearized_indeterminate_type_string() {
         return message_indeterminate_type_string;
     }
 
-    vec8opt opts = 0 | VEC_OPT_HEAP_SPREAD;
     ecode e = allocate_vec8(
         &message_indeterminate_type_string,
         MSG_LEN_INDETERMINATE_TYPE_STRING,
-        opts
+        VEC_OPT_HEAP_SPREAD
     );
     if (nullptr != message_indeterminate_type_string) {
         /*your choice of ENOMEM handling, or*/ return nullptr;
