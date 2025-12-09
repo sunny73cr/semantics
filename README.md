@@ -2,7 +2,9 @@
 Semantic arguments regarding code style and program execution (hmm...)
 
 [Original comment on mattkefford's post](https://github.com/MaJerle/c-code-style/issues/4#issuecomment-3629750546)
+
 [mattkefford](https://github.com/mattkefford) > "... all variables at the top of a block is ... old fashioned."
+
 [MaJerle](https://github.com/MaJerle) > "... very ugly ... unclear ... in the middle of program..."
 
 I believe that context is required before making this decision; and that declarations (and furthermore, initialisations) are better suited closer to where they are used.
