@@ -174,13 +174,6 @@ The strings no longer immediately stand out as steps in the flow of execution, a
 
 A new issue is that the code is significantly slower; and, you are no longer able to use the message within the preprocessor environment yourself.
 
-### some other header:
-```
-#define MSG_LEN_INDETERMINATE_TYPE_STRING 39
-#define MSG_CODE_INDETERMINATE_TYPE_STRING 32766
-extern vec8* message_indeterminate_type_string;
-```
-
 ### get_error(enum_msg_code message_code)
 ```
 vec8* get_error(enum_msg_code message_code);
@@ -197,6 +190,10 @@ vec8* get_error(enum_msg_code message_code) {
 
 ### get_string_delinearized_indeterminate_type_string()
 ```
+#define MSG_LEN_INDETERMINATE_TYPE_STRING 39
+#define MSG_CODE_INDETERMINATE_TYPE_STRING 32766
+extern vec8* message_indeterminate_type_string;
+
 inline vec8* get_message_delinearized_indeterminate_type_string();
 
 inline vec8* get_message_delinearized_indeterminate_type_string() {
