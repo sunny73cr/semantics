@@ -180,7 +180,7 @@ A new issue is that the code is significantly slower; and, you are no longer abl
 #define MSG_CODE_INDETERMINATE_TYPE_STRING 32766
 ```
 
-### get_error(E_MSG_CODE_X)
+### get_error(enum_msg_code message_code)
 ```
 vec8* get_error(enum_msg_code message_code);
 
