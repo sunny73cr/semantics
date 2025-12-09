@@ -141,19 +141,19 @@ int main(int strc, char** strs) {
     enum_type_str type = get_string_type(strs[0]);
     switch (type) {
         case TYPE_STR_FIRST: type_str_first_do_some_work(strs[0], str_length);
-            //break; is technically not neccessary.
+            //break; //is technically not neccessary.
         case TYPE_STR_SECOND: type_str_second_do_some_work(strs[0], str_length);
-            //break; is technically not neccessary.
+            //break; //is technically not neccessary.
         case TYPE_STR_THIRD: type_str_third_do_some_work(strs[0], str_length);
-            //break; is technically not neccessary.
+            //break; //is technically not neccessary.
         case TYPE_STR_FOURTH: type_str_fourth_do_some_work(strs[0], str_length);
-            //break; is technically not neccessary.
+            //break; //is technically not neccessary.
         case TYPE_STR_FIFTH: type_str_fifth_do_some_work(strs[0], str_length);
-            //break; is technically not neccessary.
+            //break; //is technically not neccessary.
         case TYPE_STR_UNKNOWN: handle_exit("Type of string could not be determined.", 39, EINVAL);
-            //break; is technically not neccessary.
+            //break; //is technically not neccessary.
         default: assert(!"String type determination returned an unexpected value...");
-           // break; is technically not neccessary.
+           // break; //is technically not neccessary.
     }
 }
 ```
