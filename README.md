@@ -135,7 +135,7 @@ inline void type_str_fifth_do_some_work(char* str, unsigned int str_length) {
 }
 
 int main(int strc, char** strs) {
-    if (strc != 1) handle_exit("Too many strings.", 17, EINVAL);
+    if (strc != 1) handle_exit("You must provide a single string.", 33, EINVAL);
     unsigned int str_length = get_string_length(strs[0]);
     if (!str_length) handle_exit("String was empty.", 17, EINVAL);
     enum_type_str type = get_string_type(strs[0]);
