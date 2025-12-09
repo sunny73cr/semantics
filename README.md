@@ -178,6 +178,7 @@ A new issue is that the code is significantly slower; and, you are no longer abl
 ```
 #define MSG_LEN_INDETERMINATE_TYPE_STRING 39
 #define MSG_CODE_INDETERMINATE_TYPE_STRING 32766
+extern vec8* message_indeterminate_type_string;
 ```
 
 ### get_error(enum_msg_code message_code)
@@ -199,12 +200,19 @@ vec8* get_error(enum_msg_code message_code) {
 inline vec8* get_message_delinearized_indeterminate_type_string();
 
 inline vec8* get_message_delinearized_indeterminate_type_string() {
-    vec8* message;
-    if (message) return message;
+    if (nullptr != message_indeterminate_type_string) {
+        return message_indeterminate_type_string;
+    }
 
     vec8opt opts = 0 | VEC_OPT_HEAP_SPREAD;
-    ecode e = allocate_vec8(message, MSG_LEN_INDETERMINATE_TYPE_STRING, opts);
-    if (!message) /*your choice of ENOMEM handling, or*/ return nullptr;
+    ecode e = allocate_vec8(
+        &message_indeterminate_type_string,
+        MSG_LEN_INDETERMINATE_TYPE_STRING,
+        opts
+    );
+    if (nullptr != message_indeterminate_type_string) {
+        /*your choice of ENOMEM handling, or*/ return nullptr;
+    }
 
     //"Type of string could not be determined."
     append_vec8_char(message, 'T');
