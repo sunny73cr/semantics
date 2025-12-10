@@ -257,7 +257,7 @@ inline vec8* get_message_delinearized_indeterminate_type_string() {
 }
 ```
 
-## and now; for something completely different:
+## and now; for [something completely different](https://www.youtube.com/watch?v=dO_vv3aRZRo):
 
 Randomise your struct layout!
 
