@@ -363,7 +363,7 @@ Don't; a computer does it far better. Buy an HSM!
 You may wish to extend `su`.
 `unshare` pretty much everything.
 If it does something, and it should do "one thing";
-'it needs a namespace' and a 'home directory' with a 'cgroup'.
+it needs a 'namespace', a 'home directory', and a 'cgroup'.
 
 ### Key verification
 You'll need a paper copy of your Secure Boot keys. If they are altered by Windows Update replacing your BIOS/UEFI binary, you'll never know.
