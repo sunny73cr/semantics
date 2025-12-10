@@ -5,6 +5,8 @@ No, there's no donate link.
 
 "That's how he thought? When he thought it?" Crazy. Contribute!
 
+Timestamps are for debugging, not git blaming!
+
 ## Minimising stack exchange; program correctness, code correctness
 
 [Original comment on mattkefford's post](https://github.com/MaJerle/c-code-style/issues/4#issuecomment-3629750546)
