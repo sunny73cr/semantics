@@ -354,7 +354,7 @@ Sign it. See [redhat](https://www.redhat.com)
 
 ### File permissions
 Enforce them. See [redhat](https://www.redhat.com) (and SELinux).
-You may wish to extend `acl`.
+You may wish to extend `acl`, and `ext4`.
 
 ### Key management
 Don't; a computer does it far better. Buy an HSM!
