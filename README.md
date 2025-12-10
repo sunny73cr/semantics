@@ -258,6 +258,7 @@ inline vec8* get_message_delinearized_indeterminate_type_string() {
     return message_indeterminate_type_string;
 }
 ```
+(@microsoft for C# 15+?)
 
 ## and now; for [something completely different](https://www.youtube.com/watch?v=dO_vv3aRZRo):
 
