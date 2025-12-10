@@ -1,5 +1,5 @@
-# semantics
-Semantic arguments regarding code style and program execution (hmm...)
+# Programming tips / semantics
+General advice for programming / software development.
 
 ## Minimising stack exchange; program correctness, code correctness
 
@@ -321,3 +321,54 @@ If the structure of your memory is hard to guess, then the heap-spread string is
 It can't be hacked!
 
 and after all, that was the point of encryption.
+
+## hardening your compile step:
+As during development; YAGNI: you ain't gonna need it.
+`gcc` has some cool features to ensure that you're putting out minimal, correct code:
+
+### ! -g
+If it's available outside your network; don't include debugging symbols with the `-g` flag: it makes it far too easy to reverse engineer.
+
+## hardening your runtime:
+As with websites and internet servers, you should verify shared libraries, too.
+`ld` has some cool features to ensure that your code functions correctly:
+
+### -pie / --pic-executable
+Analysing a memory dump is far harder with this option. Symbols cannot override each other, and it forces you to consider dependencies on bad programming styles. We're not working for NASA here; there is memory available, and if there isn't, it's just too much in one go: chunk the function's scope. Line by line, byte by byte, or symbol by symbol is better than crashing.
+
+### huge page tables
+There was something or other to dicuss about huge page tables and their effect on entropy... 0.0
+
+### ! --no-trampoline
+You'll want to trampoline, or you can bounce.
+
+### --forceinteg
+A mostly undocumented option. AFAIK, it's like authenticating your kernel on boot, but for shared libraries.
+Which leads me to...
+
+## Your development environment
+No, not just your text editor.
+
+### Singing your kernel
+Sign it. See [redhat](https://www.redhat.com)
+
+### File permissions
+Enforce them. See [redhat](https://www.redhat.com) (and SELinux).
+You may wish to extend `acl`.
+
+### Key management
+Don't; a computer does it far better. Buy an HSM!
+
+### Access control; general
+You may wish to extend `su`.
+`unshare` pretty much everything.
+If it does something, and it should do "one thing";
+'it needs a namespace' and a 'home directory' with a 'cgroup'.
+
+### Key verification
+You'll need a paper copy of your Secure Boot keys. If they are altered by Windows Update replacing your BIOS/UEFI binary, you'll never know.
+Which leads me into...
+
+## Bad practices in the industry!
+
+What the hell is wrong with sharing a public TLS certificate?
