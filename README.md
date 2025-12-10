@@ -1,6 +1,8 @@
 # Programming tips / semantics
 General advice for programming / software development.
 
+No, there's no donate link.
+
 ## Minimising stack exchange; program correctness, code correctness
 
 [Original comment on mattkefford's post](https://github.com/MaJerle/c-code-style/issues/4#issuecomment-3629750546)
