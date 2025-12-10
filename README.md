@@ -258,7 +258,6 @@ inline vec8* get_message_delinearized_indeterminate_type_string() {
     return message_indeterminate_type_string;
 }
 ```
-(@microsoft for C# 15+?)
 
 ## and now; for [something completely different](https://www.youtube.com/watch?v=dO_vv3aRZRo):
 
@@ -318,6 +317,7 @@ vec8* vec8_secure_initialise() {
 // vec8_secure_get_enc();
 // vec8_secure_get_opt();
 ```
+(@microsoft for C# 15+?)
 
 If the structure of your memory is hard to guess, then the heap-spread string is encrypted via byte-packing, alternate encoding/s, further obfuscation and indexing, etc...
 
