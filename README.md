@@ -240,7 +240,7 @@ inline vec8* get_message_delinearized_indeterminate_type_string() {
     append_vec8_char(message_indeterminate_type_string, ' ');
     append_vec8_char(message_indeterminate_type_string, 'b');
     append_vec8_char(message_indeterminate_type_string, 'e');
-    append_vec8_char(message_indeterminate_type_string, '');
+    append_vec8_char(message_indeterminate_type_string, '');  // < here's why you should automate this step.
     append_vec8_char(message_indeterminate_type_string, 'd');
     append_vec8_char(message_indeterminate_type_string, 'e');
     append_vec8_char(message_indeterminate_type_string, 't');
