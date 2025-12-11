@@ -332,6 +332,9 @@ As during development; YAGNI: you ain't gonna need it.
 ### ! -g
 If it's available outside your network; don't include debugging symbols with the `-g` flag: it makes it far too easy to reverse engineer.
 
+### stack canaries
+You probably want these too. It depends on the implementation, but they could be expensive.
+
 ## hardening your runtime:
 As with websites and internet servers, you should verify shared libraries, too.
 `ld` has some cool features to ensure that your code functions correctly:
@@ -344,9 +347,6 @@ There was something or other to dicuss about huge page tables and their effect o
 
 ### ! --no-trampoline
 You'll want to trampoline, or you can bounce.
-
-### stack canaries
-You probably want these too. It depends on the implementation, but they could be expensive.
 
 ### --forceinteg
 A mostly undocumented option. AFAIK, it's like authenticating your kernel on boot, but for shared libraries.
