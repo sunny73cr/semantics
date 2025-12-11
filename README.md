@@ -352,7 +352,7 @@ Which leads me to...
 ## Your development environment
 No, not just your text editor.
 
-### Singing your kernel
+### Signing your kernel
 Sign it. See [redhat](https://www.redhat.com)
 
 ### File permissions
