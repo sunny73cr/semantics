@@ -317,11 +317,11 @@ vec8* vec8_secure_initialise() {
 // vec8_secure_get_enc();
 // vec8_secure_get_opt();
 ```
-(@microsoft for C# 15+?)
+You may need a tiny initial heap size to reap the benefits correctly; and acquire small chunks from there: yes, it's expensive and the gain is debatable. The point is to be confusing to those that don't know what your memory structure should be.
 
-If the structure of your memory is hard to guess, then the heap-spread string is encrypted via byte-packing, alternate encoding/s, further obfuscation and indexing, etc...
+If the structure of your memory is hard to guess, the heap-spread string is encrypted via byte-packing, represented in alternate encoding/s, with further obfuscation and indexing, etc...
 
-It can't be hacked!
+It "can't" be hacked!
 
 and after all, that was the point of encryption.
 
