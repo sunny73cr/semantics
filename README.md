@@ -378,3 +378,13 @@ Which leads me into...
 ## Bad practices in the industry!
 
 What the hell is wrong with sharing a public TLS certificate?
+
+## Correcting... CPU's?
+
+[Analytical Gist on 'Intel 64-bit / IA-32 RORX Instruction'](https://gist.github.com/sunny73cr/e94e7e4a1c3cd3f4eb3f35cb53f5d1b4)
+
+## Correcting... Stanford University?
+
+[Analytical Gist on 'Stanford's "Bit Twiddling Hacks"'](https://gist.github.com/sunny73cr/1b4a83e8ace5760cd6a06c5a847fe5c2)
+
+Note.. if this is a real error (and not a TLS certificate hack), you can happily claim the reward for yourself.
