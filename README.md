@@ -345,6 +345,9 @@ There was something or other to dicuss about huge page tables and their effect o
 ### ! --no-trampoline
 You'll want to trampoline, or you can bounce.
 
+### stack canaries
+You probably want these too. It depends on the implementation, but they could be expensive.
+
 ### --forceinteg
 A mostly undocumented option. AFAIK, it's like authenticating your kernel on boot, but for shared libraries.
 Which leads me to...
