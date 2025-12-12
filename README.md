@@ -164,7 +164,7 @@ int main(int strc, char** strs) {
 
 ## Reducing the reverse-ability of code via static analysis
 
-[Referential Gist on quetening your binary, and (somewhat) your stack](https://gist.github.com/sunny73cr/a2c8e9fa9e7e81e66692e5f831f6142d)
+[Referential Gist on quietening your binary, and (somewhat) your stack](https://gist.github.com/sunny73cr/a2c8e9fa9e7e81e66692e5f831f6142d)
 
 ## and now; for [something completely different](https://www.youtube.com/watch?v=dO_vv3aRZRo):
 
