@@ -23,9 +23,11 @@ No, there's no donate link.
 
 What the hell is wrong with sharing a public TLS certificate?
 
-## Correcting... CPU's?
+## Correcting... CPU's? (Nevermind. Wrong approach!)
 
 [Analytical Gist on 'Intel 64-bit / IA-32 RORX Instruction'](https://gist.github.com/sunny73cr/e94e7e4a1c3cd3f4eb3f35cb53f5d1b4)
+
+Update: correcting... myself, of course!
 
 ## Correcting... Stanford University?
 
