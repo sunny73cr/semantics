@@ -261,69 +261,7 @@ inline vec8* get_message_delinearized_indeterminate_type_string() {
 
 ## and now; for [something completely different](https://www.youtube.com/watch?v=dO_vv3aRZRo):
 
-Randomise your struct layout!
-
-Instead of the following:
-```
-#define VEC8_INITIAL_SIZE 32
-typedef struct {
-    u8 size; //of buffer
-    char** buf;
-    u8 len; //of data
-    enum_enc_t enc; //utf-8, ascii, b64, octal, etc. (or mixed)
-    enum_vec_opt_t opt; //heap spread, contiguous, reverse, etc.
-} vec8_secure;
-```
-
-Do this!
-```
-#define VEC8_INITIAL_SIZE 32
-typedef enum : u8 {
-    _VEC8_PROP_UNKNOWN = 0,
-    VEC8_PROP_SIZE = 1,
-    VEC8_PROP_BUF = 2,
-    VEC8_PROP_LEN = 3,
-    VEC8_PROP_ENC = 4,
-    VEC8_PROP_OPT = 5
-} enum_vec8_secure_property;
-
-typedef struct {
-    u8 idx;
-    u8 property;
-} vec8_secure_index_member;
-
-typedef ;
-
-typedef struct {
-    vec8_secure_index_member* index[] vec8_secure_index;
-    void* one;
-    void* two;
-    void* three;
-    void* four;
-    void* five;
-} vec8_secure;
-
-// create and setup a vec8
-vec8* vec8_secure_initialise() {
-    //create and populate the property index.
-    //initialise each property.
-    //return the vec8*.
-}
-
-//then, define:
-// _vec8_secure_get_size();
-// vec8_secure_get_buf();
-// vec8_secure_get_len();
-// vec8_secure_get_enc();
-// vec8_secure_get_opt();
-```
-You may need a tiny initial heap size to reap the benefits fully; and acquire small chunks from there: yes, it's expensive and the gain is debatable. The point is to be confusing to those that don't know what your memory structure should be.
-
-If the structure of your memory is hard to guess, the heap-spread string is encrypted via byte-packing, represented in alternate encoding/s, with further obfuscation and indexing, etc...
-
-It "can't" be hacked!
-
-and after all, that was the point of encryption.
+[Referential Gist on "Memory Layout Hardening or '++ASLR'"](https://gist.github.com/sunny73cr/f6cd4b182024299bc9436ab3f9fc7488)
 
 ## hardening your compilation, assembly and linkage steps:
 
