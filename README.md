@@ -29,7 +29,7 @@ What the hell is wrong with sharing a public TLS certificate?
 
 Update: correcting... myself, of course!
 
-## Correcting... Stanford University?
+## Correcting... Stanford University? Kinda.
 
 [Analytical Gist on 'Stanford's "Bit Twiddling Hacks"'](https://gist.github.com/sunny73cr/1b4a83e8ace5760cd6a06c5a847fe5c2)
 
