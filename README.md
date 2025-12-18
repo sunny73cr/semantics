@@ -33,4 +33,4 @@ Update: correcting... myself, of course!
 
 [Analytical Gist on 'Stanford's "Bit Twiddling Hacks"'](https://gist.github.com/sunny73cr/1b4a83e8ace5760cd6a06c5a847fe5c2)
 
-Note.. if this is a real error (and not a TLS certificate hack), you can happily claim the reward for yourself.
+Feel free to claim the reward for yourself.
