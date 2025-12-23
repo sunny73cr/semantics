@@ -116,7 +116,7 @@ is literal, and YY is 1-32... or I suppose YY is 0 only if all XXX is 0.
 
 Regardless, if you have YY in `wkspc` and the current character `c` is a `/`; then you know you may have
 a CIDR notation mask for a network address (yet to be parsed)... I'm reading a string (it is ASCII), so
-to convert the ascii symbol number into a decimal number.. subtract 0x30 (refer to an ASCII table if you
+to convert the ASCII symbol number into a decimal number.. subtract 0x30 (refer to an ASCII table if you
 are unsure), and sum them after correcting the value for their place. I iterated in reverse, so `wkspc[0]`
 is the 'ones place', or `(num)c * 10**0`. Then, `wkspc[1]` is the 'tens place', or `(num)c * 10**1`.
 Summed together, it should convert the ASCII representation into a decimal numeric representation.
