@@ -139,6 +139,9 @@ int main(int argc, char** argv) {
   line[idx] = c;
   ++idx;
  }
+ //forward
+ //uint8_t count = idx + 1;
+ //for (idx = 0; idx < count; ++idx) {
  for (; idx >= 0; --idx) {
   c = line[idx];
   printf("%c", c);
