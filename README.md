@@ -91,3 +91,37 @@ The code that I altered should not have such wild effects on the program.
 I used MinGW (GCC 15.2) this time. Previously I was using GCC 14.2 on Debian... similar issues.
 
 Which toolchain for C programming actually works?
+
+## Correcting... Compilers.
+
+Yes, again.
+
+Would a compiler or AI LLM ever generate the following code?
+
+```
+if (c == chr_slash) {
+ //chr to num is (char - 0x30).
+ //the numbers are still separate base 10 symbols.
+ //rev iter; 10**idx is the real value.
+ //add them together to get the final number.
+ *mask += (wkspc[0] - 0x30);
+ *mask += ((wkspc[1] - 0x30) * 10);
+ if (*mask > 32) return false;
+...
+```
+
+In the surrounding program; I've iterated a CIDR notation IPv4 address from the end to the beginning.
+A CIDR notation address is like "XXX.XXX.XXX.XXX/YY", where XXX is 0-255, periods are literal, the slash
+is literal, and YY is 1-32... or I suppose YY is 0 only if all XXX is 0.
+
+Regardless, if you have YY in `wkspc` and the current character `c` is a `/`; then you know you may have
+a CIDR notation mask for a network address (yet to be parsed)... I'm reading a string (it is ASCII), so
+to convert the ascii symbol number into a decimal number.. subtract 0x30 (refer to an ASCII table if you
+are unsure), and sum them after correcting the value for their place. I iterated in reverse, so `wkspc[0]`
+is the 'ones place', or `(num)c * 10**0`. Then, `wkspc[1]` is the 'tens place', or `(num)c * 10**1`.
+Summed together, it should convert the ASCII representation into a decimal numeric representation.
+
+Is there anything wrong with my logic?
+
+Despite this, I still get incorrect results. The address `192.168.1.10/24` is somehow converted to the network
+`156.168.97.0/24`... piss poor performance! What a security risk that is.
