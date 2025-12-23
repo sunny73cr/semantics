@@ -123,4 +123,4 @@ Summed together, it should convert the ASCII representation into a decimal numer
 
 I do not wish to test every instruction sequence permutation just to get a happy compiler. It should work!
 
-The problems seem to disappear when I iterate forward, rather than in reverse. :-c
+The problems seem to disappear when I iterate forward, rather than in reverse. >:-c
