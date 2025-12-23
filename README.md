@@ -148,9 +148,11 @@ int main(int argc, char** argv) {
  for (; idx >= 0; --idx) {
   c = line[idx];
   printf("%c", c);
+  if (idx == 0) break;
  }
  return 0;
 }
 ```
 The first argument is a file path.
 The file contains some text; 18 characters or less, then a newline.
+(apologies about the last edit.. the code that I am complaining about has an exit condition; the above example now mimics it.)
