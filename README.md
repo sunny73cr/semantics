@@ -125,3 +125,15 @@ Is there anything wrong with my logic?
 
 Despite this, I still get incorrect results. The address `192.168.1.10/24` is somehow converted to the network
 `156.168.97.0/24`... piss poor performance! What a security risk that is.
+
+I think that there is nothing wrong with my logic. It always converts the second octet and the mask correctly, but
+the first, third and fourth octets are always incorrect. Ignoring the issue of suddenly null data... I think that
+the problem is when the address is decomposed into it's octets from a `u32`. I mask the octets with `0xFF000000u`,
+`0x00FF0000u`, `0x0000FF00u` and `0x000000FFu`.. then shift the octet into the low byte with `>> 24`, `>> 16`, `>> 8`, 
+and no shift for the last octet, of course.
+
+It may be a problem with the way that the compiler interprets my instructions, or the byte registers are bad on
+my machine, or the 8-bit logic in ALUs are bad when working with bytes. Some instructions do not support byte
+register operands, so they could be sign-extended or zero-extended to 16 bits for compatibility with a supposedly
+faster circuit... I'm not sure.. all speculation! Regardless, I do not wish to test every permutation of byte storage
+and decomposition logic just to get a happy compiler. It should work!
