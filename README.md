@@ -134,7 +134,7 @@ int main(int argc, char** argv) {
  uint8_t line[20];
  uint8_t idx = 0;
  uint8_t c;
- while(c != 0x0D && c != 0x0A) {
+ while(c != 0x0D && c != 0x0A) { //not CR or LF
   c = fgetc(file);
   line[idx] = c;
   ++idx;
