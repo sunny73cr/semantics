@@ -124,3 +124,27 @@ Summed together, it should convert the ASCII representation into a decimal numer
 I do not wish to test every instruction sequence permutation just to get a happy compiler. It should work!
 
 The problems seem to disappear when I iterate forward, rather than in reverse. >:-c
+
+Maybe try this on your machine:
+```
+#include <stdio.h>
+#include <stdint.h>
+int main(int argc, char** argv) {
+ FILE* file = fopen(argv[1], "r");
+ uint8_t line[20];
+ uint8_t idx = 0;
+ uint8_t c;
+ while(c != 0x0D && c != 0x0A) {
+  c = fgetc(file);
+  line[idx] = c;
+  ++idx;
+ }
+ for (; idx >= 0; --idx) {
+  c = line[idx];
+  printf("%c", c);
+ }
+ return 0;
+}
+```
+The first argument is a file path.
+The file contains some text; 18 characters or less, then a newline.
