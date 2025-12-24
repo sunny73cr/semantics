@@ -42,3 +42,7 @@ Feel free to claim the reward for yourself.
 ## Minimising CPU cycle requirements for a task
 
 [Minimising required CPU cycles for a task](https://gist.github.com/sunny73cr/b6a93b1c1d690249141b62c31044cb69)
+
+## Find the single element
+
+[Find the single element in an array](https://gist.github.com/sunny73cr/b9060179406930ad72fd9e32568e8786)
