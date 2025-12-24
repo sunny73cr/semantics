@@ -46,3 +46,7 @@ Feel free to claim the reward for yourself.
 ## Find the single element
 
 [Find the single element in an array](https://gist.github.com/sunny73cr/b9060179406930ad72fd9e32568e8786)
+
+## Fixing clock drift, pc part market analysis
+
+[Fixing clock drift, pc part market analysis](https://gist.github.com/sunny73cr/6af619e0125814d37d96c3feccaf3c7a)
