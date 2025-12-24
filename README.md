@@ -37,58 +37,7 @@ Feel free to claim the reward for yourself.
 
 ## Correcting... Compilers.
 
-Programming is F A R too declarative; even at the level ("closeness to hardware") of 'C'.
-
-Take the following snippets as an example:
-
-```
-...
- return a_ip4cidr(addr, mask);
-}
-```
-
-```
-...
- ip4cidr* elem = a_ip4cidr(addr, mask);
- return elem;
-}
-```
-
-```
-...
- ip4cidr* elem = a_ip4cidr(addr, mask);
- return a_ip4cidr(addr, mask);
-}
-```
-
-All three should have zero effect on my program's final 'functionality'; that is, the user experience: except for performance.
-
-- I found that with the first version: it cannot parse
-  addresses correctly. It always fails.
-
-- I found that with the second version: it "works",
-  but the address is wrong: it has still failed.
-
-- I found that with the third version: it fails intermittently;
-  out of 447 addresses... 14, 27, 51, 69, 70, 71, 85, etc... failed to parse,
-  then the program finally fails with an assertion on some field that I know
-  should absolutely be non-null. Keep in mind that it had JUST worked for
-  addresses 1-13, 15-26... etc. I can only assume that the address is still
-  incorrect, much like the first examples.
-
-You might think that it is wasteful in developer time and performance to
-be really absolutely certain of the value of an input; even if it was
-generated hundreds of nanoseconds ago, from known-good data; by a 'child'
-function call, or parent method: but the above example is precisely why
-I still valdiate every input... and it is wasteful; but I find it is still
-neccessary.
-
-It is synchronous, imperative code. Do bitwise ands, ors and shifts not
-work the way that I think they do on unsigned integers?
-
-The code that I altered should not have such wild effects on the program.
-I used MinGW (GCC 15.2) this time. Previously I was using GCC 14.2 on Debian... similar issues.
-Which toolchain for C programming actually 'works'?
+[Correcting...Compilers](https://gist.github.com/sunny73cr/93efac50ca1f30998440e9760aa74069)
 
 ## Minimising CPU cycle requirements for a task
 
