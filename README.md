@@ -87,72 +87,9 @@ It is synchronous, imperative code. Do bitwise ands, ors and shifts not
 work the way that I think they do on unsigned integers?
 
 The code that I altered should not have such wild effects on the program.
-
 I used MinGW (GCC 15.2) this time. Previously I was using GCC 14.2 on Debian... similar issues.
+Which toolchain for C programming actually 'works'?
 
-Which toolchain for C programming actually works?
+## Minimising CPU cycle requirements for a task
 
-## Correcting... Compilers.
-
-Yes, again.
-
-Would a compiler or AI LLM ever generate the following code?
-
-```
-if (c == chr_slash) {
- //chr to num is (char - 0x30).
- //the numbers are still separate base 10 symbols.
- //rev iter; 10**idx is the real value.
- //add them together to get the final number.
- *mask += (wkspc[0] - 0x30);
- *mask += ((wkspc[1] - 0x30) * 10);
- if (*mask > 32) return false;
-...
-```
-
-In the surrounding program; I've iterated a CIDR notation IPv4 address from the end to the beginning.
-A CIDR notation address is like "XXX.XXX.XXX.XXX/YY", where XXX is 0-255, periods are literal, the slash
-is literal, and YY is 1-32... or I suppose YY is 0 only if all XXX is 0.
-
-Regardless, if you have YY in `wkspc` and the current character `c` is a `/`; then you know you may have
-a CIDR notation mask for a network address (yet to be parsed)... I'm reading a string (it is ASCII), so
-to convert the ASCII symbol number into a decimal number.. subtract 0x30 (refer to an ASCII table if you
-are unsure), and sum them after correcting the value for their place. I iterated in reverse, so `wkspc[0]`
-is the 'ones place', or `(num)c * 10**0`. Then, `wkspc[1]` is the 'tens place', or `(num)c * 10**1`.
-Summed together, it should convert the ASCII representation into a decimal numeric representation.
-
-I do not wish to test every instruction sequence permutation just to get a happy compiler. It should work!
-
-The problems seem to disappear when I iterate forward, rather than in reverse. >:-c
-
-Maybe try this on your machine:
-```
-#include <stdio.h>
-#include <stdint.h>
-int main(int argc, char** argv) {
- FILE* file = fopen(argv[1], "r");
- uint8_t line[20];
- uint8_t idx = 0;
- uint8_t c;
- while(c != 0x0D && c != 0x0A) { //not CR or LF
-  c = fgetc(file);
-  line[idx] = c;
-  ++idx;
- }
-
- //forward
- //uint8_t count = idx + 1;
- //for (idx = 0; idx < count; ++idx) {
-
- //reverse
- for (; idx >= 0; --idx) {
-  c = line[idx];
-  printf("%c", c);
-  if (idx == 0) break;
- }
- return 0;
-}
-```
-The first argument is a file path.
-The file contains some text; 18 characters or less, then a newline.
-(apologies about the last edit.. the code that I am complaining about has an exit condition; the above example now mimics it.)
+[Minimising required CPU cycles for a task](https://gist.github.com/sunny73cr/b6a93b1c1d690249141b62c31044cb69)
