@@ -17,6 +17,7 @@ No, there's no donate link.
 What the hell is wrong with sharing a public TLS certificate?
 
 [## Analysis of 'Stanford's "Bit Twiddling Hacks"'](https://gist.github.com/sunny73cr/1b4a83e8ace5760cd6a06c5a847fe5c2)
+
 Feel free to claim the reward for yourself.
 
 [## Correcting... Compilers.](https://gist.github.com/sunny73cr/93efac50ca1f30998440e9760aa74069)
