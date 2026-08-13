@@ -3,50 +3,30 @@ General advice for programming / software development.
 
 No, there's no donate link.
 
-## Minimising stack exchange; program correctness, code correctness
-
 [Best practices on C Programming style; minimising stack exchange and memory acquisition](https://gist.github.com/sunny73cr/2a7cee5ca817faf110438b006b32ab62)
 
-## Reducing the reverse-ability of code via static analysis
-
-[Referential Gist on quietening your binary, and (somewhat) your stack](https://gist.github.com/sunny73cr/a2c8e9fa9e7e81e66692e5f831f6142d)
+[## Quietening your binary, and (somewhat) your stack](https://gist.github.com/sunny73cr/a2c8e9fa9e7e81e66692e5f831f6142d)
 
 ## and now; for [something completely different](https://www.youtube.com/watch?v=dO_vv3aRZRo):
 
-[Referential Gist on "Memory Layout Hardening or '++ASLR'"](https://gist.github.com/sunny73cr/f6cd4b182024299bc9436ab3f9fc7488)
+[## "Memory Layout Hardening or '++ASLR'"](https://gist.github.com/sunny73cr/f6cd4b182024299bc9436ab3f9fc7488)
 
-## hardening your compilation, assembly and linkage steps:
-
-[Referential Gist on "Best Practices" for 'C' compilation, assembly and linkage](https://gist.github.com/sunny73cr/9d26b4efe479e8ff7ac7d6cf34300c73)
+[## "Best Practices" for 'C' compilation, assembly and linkage](https://gist.github.com/sunny73cr/9d26b4efe479e8ff7ac7d6cf34300c73)
 
 ## Bad practices in the industry!
-
 What the hell is wrong with sharing a public TLS certificate?
 
-## Correcting... CPU's? (Nevermind. Wrong approach!)
-
-[Analytical Gist on 'Intel 64-bit / IA-32 RORX Instruction'](https://gist.github.com/sunny73cr/e94e7e4a1c3cd3f4eb3f35cb53f5d1b4)
-
-Update: correcting... myself, of course!
-
-## Correcting... Stanford University? Kinda.
-
-[Analytical Gist on 'Stanford's "Bit Twiddling Hacks"'](https://gist.github.com/sunny73cr/1b4a83e8ace5760cd6a06c5a847fe5c2)
-
+[## Analysis of 'Stanford's "Bit Twiddling Hacks"'](https://gist.github.com/sunny73cr/1b4a83e8ace5760cd6a06c5a847fe5c2)
 Feel free to claim the reward for yourself.
 
-## Correcting... Compilers.
+[## Correcting... Compilers.](https://gist.github.com/sunny73cr/93efac50ca1f30998440e9760aa74069)
 
-[Correcting...Compilers](https://gist.github.com/sunny73cr/93efac50ca1f30998440e9760aa74069)
+[## Minimising CPU cycle requirements for a task](https://gist.github.com/sunny73cr/b6a93b1c1d690249141b62c31044cb69)
 
-## Minimising CPU cycle requirements for a task
+[## Find the single element](https://gist.github.com/sunny73cr/b9060179406930ad72fd9e32568e8786)
 
-[Minimising required CPU cycles for a task](https://gist.github.com/sunny73cr/b6a93b1c1d690249141b62c31044cb69)
+[## Fixing clock drift, pc part market analysis](https://gist.github.com/sunny73cr/6af619e0125814d37d96c3feccaf3c7a)
 
-## Find the single element
+[## Memory safety - expanding, condensing, shrinking sets](https://gist.github.com/sunny73cr/e115cfbc596061ade32a0f25d8092d3b)
 
-[Find the single element in an array](https://gist.github.com/sunny73cr/b9060179406930ad72fd9e32568e8786)
-
-## Fixing clock drift, pc part market analysis
-
-[Fixing clock drift, pc part market analysis](https://gist.github.com/sunny73cr/6af619e0125814d37d96c3feccaf3c7a)
+[## Comparing range comparison to bit-wise lookup tables, and compiler performance.](https://gist.github.com/sunny73cr/bc652f205dee713983a4df9d37febbe3)
